@@ -8,11 +8,10 @@ namespace jogo_de_adivinhacao.PlayGame;
 
 public class StartGame
 {
-    public static void Start()
+    public static void Start(Player player)
     {
         Console.Clear();
-        Console.Write("O jogo está começando! \nMas antes de começarmos, nos diga o seu Nickname: ");
-        string nickNamePlayer = Console.ReadLine();
+
 
         bool opcaoEscolhida = false;
         string[] temaJogo = { "Futebol", "Filmes", "Séries", "Jogos Online", "Guerras" };
@@ -20,7 +19,7 @@ public class StartGame
         do
         {
             Console.Clear();
-            Console.WriteLine($"{nickNamePlayer}, escolha o tema do jogo abaixo.");
+            Console.WriteLine($"{player.NickNamePlayer}, escolha o tema do jogo abaixo.");
             Console.WriteLine();
 
             for (int i = 0; i < temaJogo.Length; i++)
@@ -50,7 +49,7 @@ public class StartGame
                 if (selecionarTemaJogo == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine($"{nickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
+                    Console.WriteLine($"{player.NickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
                     Console.WriteLine("Para este tema, temos a seguinte questão: QUAL JOGADOR DE FUTEBOL MARCOU 23 GOLS EM UM ÚNICO JOGO, COM APENAS 13 ANOS? ");
                     Console.Write("Resposta: ");
                     string respostaUsuario = Console.ReadLine();
@@ -63,7 +62,7 @@ public class StartGame
                             tentativas--;
                             if (respostaUsuario != respostaCorreta)
                             {
-                                Console.WriteLine($"Você errou! \nVocê agora tem {tentativas} tentativas {nickNamePlayer}.");
+                                Console.WriteLine($"Você errou! \nVocê agora tem {tentativas} tentativas {player.NickNamePlayer}.");
                                 Console.Write("Resposta: ");
                                 respostaUsuario = Console.ReadLine();
                                 break;

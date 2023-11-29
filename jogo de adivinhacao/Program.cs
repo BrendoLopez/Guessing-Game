@@ -1,4 +1,5 @@
-﻿using jogo_de_adivinhacao.Exit;
+﻿using jogo_de_adivinhacao;
+using jogo_de_adivinhacao.Exit;
 using jogo_de_adivinhacao.Instructions;
 using jogo_de_adivinhacao.PlayGame;
 using System;
@@ -10,6 +11,10 @@ class Program
     {
         string[] menuOptions = { "Play Game", "Instructions", "Exit" };
         int selectedIndex = 0;
+        Console.Write("O jogo está começando! \nMas antes de começarmos, nos diga o seu Nickname: ");
+        Player player = new Player();
+        player.NickNamePlayer = Console.ReadLine();
+
         do
         {
 
@@ -40,7 +45,7 @@ class Program
                 case ConsoleKey.Enter:
                 if (selectedIndex == 0)
                 {
-                    StartGame.Start();
+                    StartGame.Start(player);
                 }
                 else if (selectedIndex == 1)
                 {
