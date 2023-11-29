@@ -8,18 +8,19 @@ namespace jogo_de_adivinhacao.PlayGame;
 
 public class StartGame
 {
-    public static void Start(Player player)
+    public static void Start()
     {
         Console.Clear();
-
 
         bool opcaoEscolhida = false;
         string[] temaJogo = { "Futebol", "Filmes", "Séries", "Jogos Online", "Guerras" };
         int selecionarTemaJogo = 0;
+        Console.Write("O jogo está começando! \nMas antes de começarmos, nos diga o seu Nickname: ");
+        string nickNamePlayer = Console.ReadLine();
         do
         {
             Console.Clear();
-            Console.WriteLine($"{player.NickNamePlayer}, escolha o tema do jogo abaixo.");
+            Console.WriteLine($"{nickNamePlayer}, escolha o tema do jogo abaixo.");
             Console.WriteLine();
 
             for (int i = 0; i < temaJogo.Length; i++)
@@ -34,6 +35,7 @@ public class StartGame
             }
 
             ConsoleKeyInfo clickInfoKey = Console.ReadKey();
+
             switch (clickInfoKey.Key)
             {
                 case ConsoleKey.UpArrow:
@@ -49,20 +51,21 @@ public class StartGame
                 if (selecionarTemaJogo == 0)
                 {
                     Console.Clear();
-                    Console.WriteLine($"{player.NickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
+                    Console.WriteLine($"{nickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
                     Console.WriteLine("Para este tema, temos a seguinte questão: QUAL JOGADOR DE FUTEBOL MARCOU 23 GOLS EM UM ÚNICO JOGO, COM APENAS 13 ANOS? ");
                     Console.Write("Resposta: ");
                     string respostaUsuario = Console.ReadLine();
                     string respostaCorreta = "Ronaldinho";
                     int tentativas = 10;
-                    while (respostaUsuario != respostaCorreta || tentativas == 0)
+                    while (respostaUsuario != respostaCorreta)
                     {
                         for (int i = 0; i < tentativas; i++)
                         {
                             tentativas--;
                             if (respostaUsuario != respostaCorreta)
                             {
-                                Console.WriteLine($"Você errou! \nVocê agora tem {tentativas} tentativas {player.NickNamePlayer}.");
+                                Console.WriteLine();
+                                Console.WriteLine($"Você errou! \nVocê agora tem {tentativas} tentativas {nickNamePlayer}.");
                                 Console.Write("Resposta: ");
                                 respostaUsuario = Console.ReadLine();
                                 break;
@@ -70,6 +73,7 @@ public class StartGame
                         }
                         if (tentativas <= 0)
                         {
+                            Console.WriteLine();
                             Console.WriteLine($"Suas tentivas acabaram, total restante: {tentativas}");
                             Console.WriteLine("A resposta era Ronaldinho Gaúcho, esse mito marcou simplesmente " +
                             "\n23 gols em uma única partida com apenas 13 anos de idade!");

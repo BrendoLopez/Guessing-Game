@@ -11,13 +11,9 @@ class Program
     {
         string[] menuOptions = { "Play Game", "Instructions", "Exit" };
         int selectedIndex = 0;
-        Console.Write("O jogo está começando! \nMas antes de começarmos, nos diga o seu Nickname: ");
-        Player player = new Player();
-        player.NickNamePlayer = Console.ReadLine();
 
         do
         {
-
             Console.Clear();
             for (int i = 0; i < menuOptions.Length; i++)
             {
@@ -45,7 +41,7 @@ class Program
                 case ConsoleKey.Enter:
                 if (selectedIndex == 0)
                 {
-                    StartGame.Start(player);
+                    StartGame.Start();
                 }
                 else if (selectedIndex == 1)
                 {
