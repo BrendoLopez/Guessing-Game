@@ -8,8 +8,9 @@ namespace jogo_de_adivinhacao.Controls;
 
 public class GameLogic
 {
-    public void LogicStartGame()
+    public void LogicStartGame(GameThemes temaJogo, Player nickNamePlayer)
     {
+
         if (temaJogo.SelecionarTemaJogo == 0)
         {
             Console.Clear();

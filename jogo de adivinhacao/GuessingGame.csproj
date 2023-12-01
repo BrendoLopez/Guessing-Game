@@ -8,10 +8,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="GameThemes\**" />
-    <EmbeddedResource Remove="GameThemes\**" />
-    <None Remove="GameThemes\**" />
-  </ItemGroup>
-
 </Project>

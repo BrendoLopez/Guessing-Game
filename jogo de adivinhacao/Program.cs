@@ -38,7 +38,7 @@ class Program
                 case ConsoleKey.Enter:
                 if (selectedIndex == 0)
                 {
-                    StartGame.Start();
+                    Controls.Start();
                 }
                 else if (selectedIndex == 1)
                 {

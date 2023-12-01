@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace jogo_de_adivinhacao.PlayGame;
 
-public class StartGame
+public class Controls
 {
     public static void Start()
     {
@@ -43,7 +43,7 @@ public class StartGame
 
                 case ConsoleKey.Enter:
                 opcaoEscolhida = true;
-                gameLogic.LogicStartGame();
+                gameLogic.LogicStartGame(temaJogo, player);
                 break;
             }
         } while (!opcaoEscolhida);
