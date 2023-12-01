@@ -1,9 +1,6 @@
-﻿using jogo_de_adivinhacao;
-using jogo_de_adivinhacao.Exit;
+﻿using jogo_de_adivinhacao.Exit;
 using jogo_de_adivinhacao.Instructions;
 using jogo_de_adivinhacao.PlayGame;
-using System;
-using System.Globalization;
 
 class Program
 {

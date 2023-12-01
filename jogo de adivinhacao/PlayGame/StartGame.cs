@@ -1,4 +1,5 @@
-﻿using System;
+﻿using jogo_de_adivinhacao.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,82 +14,36 @@ public class StartGame
         Console.Clear();
 
         bool opcaoEscolhida = false;
-        string[] temaJogo = { "Futebol", "Filmes", "Séries", "Jogos Online", "Guerras" };
-        int selecionarTemaJogo = 0;
+        GameThemes temaJogo = new GameThemes();
+        GameLogic gameLogic = new GameLogic();
+        
         Console.Write("O jogo está começando! \nMas antes de começarmos, nos diga o seu Nickname: ");
         string nickNamePlayer = Console.ReadLine();
+        Player player = new Player(nickNamePlayer);
+
         do
         {
             Console.Clear();
-            Console.WriteLine($"{nickNamePlayer}, escolha o tema do jogo abaixo.");
+            Console.WriteLine($"{player.NickNamePlayer}, escolha o tema do jogo abaixo.");
             Console.WriteLine();
 
-            for (int i = 0; i < temaJogo.Length; i++)
-            {
-                if (i == selecionarTemaJogo)
-                {
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                }
-                Console.WriteLine($"  << {temaJogo[i]} >>  ");
-                Console.ResetColor();
-            }
+            temaJogo.CoresTemasJogo();
 
             ConsoleKeyInfo clickInfoKey = Console.ReadKey();
 
             switch (clickInfoKey.Key)
             {
                 case ConsoleKey.UpArrow:
-                selecionarTemaJogo = (selecionarTemaJogo - 1 + temaJogo.Length) % temaJogo.Length;
+                temaJogo.SelecionarTemaJogo = (temaJogo.SelecionarTemaJogo - 1 + temaJogo.TemaJogo.Length) % temaJogo.TemaJogo.Length;
                 break;
 
                 case ConsoleKey.DownArrow:
-                selecionarTemaJogo = (selecionarTemaJogo + 1) % temaJogo.Length;
+                temaJogo.SelecionarTemaJogo = (temaJogo.SelecionarTemaJogo + 1) % temaJogo.TemaJogo.Length;
                 break;
 
                 case ConsoleKey.Enter:
                 opcaoEscolhida = true;
-                if (selecionarTemaJogo == 0)
-                {
-                    Console.Clear();
-                    Console.WriteLine($"{nickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
-                    Console.WriteLine("Para este tema, temos a seguinte questão: QUAL JOGADOR DE FUTEBOL MARCOU 23 GOLS EM UM ÚNICO JOGO, COM APENAS 13 ANOS? ");
-                    Console.Write("Resposta: ");
-                    string respostaUsuario = Console.ReadLine();
-                    string respostaCorreta = "Ronaldinho";
-                    int tentativas = 10;
-                    while (respostaUsuario != respostaCorreta)
-                    {
-                        for (int i = 0; i < tentativas; i++)
-                        {
-                            tentativas--;
-                            if (respostaUsuario != respostaCorreta)
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine($"Você errou! \nVocê agora tem {tentativas} tentativas {nickNamePlayer}.");
-                                Console.Write("Resposta: ");
-                                respostaUsuario = Console.ReadLine();
-                                break;
-                            }
-                        }
-                        if (tentativas <= 0)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine($"Suas tentivas acabaram, total restante: {tentativas}");
-                            Console.WriteLine("A resposta era Ronaldinho Gaúcho, esse mito marcou simplesmente " +
-                            "\n23 gols em uma única partida com apenas 13 anos de idade!");
-                            Console.WriteLine("Até a próxima!");
-                            break;
-                        }
-                        if (respostaUsuario == respostaCorreta)
-                        {
-                            Console.WriteLine("Você acertou, o mito do Ronaldinho Gaúcho marcou simplesmente " +
-                            "\n23 gols em uma única partida com apenas 13 anos de idade!");
-                            Console.WriteLine("Até a próxima!");
-                            Environment.Exit(0);
-                        }
-                    }
-                }
+                gameLogic.LogicStartGame();
                 break;
             }
         } while (!opcaoEscolhida);

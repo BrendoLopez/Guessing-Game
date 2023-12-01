@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="GameThemes\" />
+    <Compile Remove="GameThemes\**" />
+    <EmbeddedResource Remove="GameThemes\**" />
+    <None Remove="GameThemes\**" />
   </ItemGroup>
 
 </Project>
