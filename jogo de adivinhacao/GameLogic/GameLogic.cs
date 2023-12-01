@@ -1,10 +1,12 @@
-﻿using System;
+﻿using jogo_de_adivinhacao.GameThemes;
+using jogo_de_adivinhacao.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace jogo_de_adivinhacao.Controls;
+namespace GuessingGame;
 
 public class GameLogic
 {
