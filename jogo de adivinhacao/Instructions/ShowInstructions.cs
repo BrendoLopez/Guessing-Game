@@ -9,6 +9,7 @@ public class ShowInstructions
         Console.WriteLine("");
         Console.WriteLine("É um jogo bem simples, onde você tem apenas 10 tentativas para acertar.");
         Console.WriteLine("As palavras serão aleatórias e haverá uma dica inicial, boa sorte!");
+        Console.WriteLine("Utilize alguma tecla para retornar ao menu de opções do game...");
         Console.ReadKey();
     }
 }

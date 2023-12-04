@@ -4,6 +4,7 @@ public class ExitGame
 {
     public static void Exit()
     {
+        Console.WriteLine();
         Console.WriteLine("Você saiu do jogo! \nAté a próxima.");
         Environment.Exit(0);
     }
