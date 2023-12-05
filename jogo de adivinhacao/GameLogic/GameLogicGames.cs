@@ -1,5 +1,4 @@
 ﻿using jogo_de_adivinhacao.GameThemes;
-using jogo_de_adivinhacao.HelpTips;
 using jogo_de_adivinhacao.Player;
 
 namespace GuessingGame;

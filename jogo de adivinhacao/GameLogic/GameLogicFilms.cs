@@ -17,6 +17,8 @@ public class GameLogicFilms
             string respostaUsuario = Console.ReadLine();
             string respostaCorreta = "Avatar";
             int tentativas = 10;
+            respostaCorreta = respostaCorreta.ToLower();
+            respostaUsuario = respostaUsuario.ToLower();
             while (respostaUsuario != respostaCorreta)
             {
                 for (int i = 0; i < tentativas; i++)
@@ -27,7 +29,9 @@ public class GameLogicFilms
                         Console.WriteLine();
                         Console.WriteLine($"Você errou! \nVocê agora tem {tentativas} tentativas {nickNamePlayer.NickNamePlayer}.");
                         Console.Write("Resposta: ");
+                        respostaCorreta = respostaCorreta.ToLower();
                         respostaUsuario = Console.ReadLine();
+                        respostaUsuario = respostaUsuario.ToLower();
                         break;
                     }
                 }
@@ -45,7 +49,7 @@ public class GameLogicFilms
                 }
                 if (tentativas == 2)
                 {
-                    //TipsFilms.();
+                    TipsFilms.TipsFilmes();
                 }
             }
             if (respostaUsuario == respostaCorreta)
