@@ -1,7 +1,6 @@
-﻿namespace jogo_de_adivinhacao.Enums
+﻿namespace jogo_de_adivinhacao.Enums;
+
+enum MenuOptions
 {
-    enum MenuOptions
-    {
-        
-    }
+    
 }

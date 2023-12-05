@@ -90,7 +90,7 @@ public class Controls
                 case ConsoleKey.Enter:
                 if (selectedIndex == 0)
                 {
-                    Controls.ControlsThemesGame();
+                    ControlsThemesGame();
                 }
                 else if (selectedIndex == 1)
                 {
